@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+<title>Sistema de Supermercado - Principal</title>
+</h:head>
+
+<h:body>
+	<h:form>
+	
+		<p:growl id="panel1" showDetail="true" />	
+		<p:panel id="sistema_supermercado" header="Sistema de Supermercado" toggleable="true" closable="true" toggleSpeed="500"
+					closeSpeed="500" widgetVar="panel1" style="margin-bottom:20px">
+ 
+        <p:ajax event="close" listener="#{headerMB.onFechar}" update="panel1" />
+        <p:ajax event="toggle" listener="#{headerMB.onMinimizar}" update="panel1" />
+        
+        <h:panelGrid columns="2" cellpadding="10">
+        	<p:outputLabel value="Bem vindo(a), #{loginMB.usuario.nome}"  />
+        	<p:commandButton value="Sair" />
+        </h:panelGrid>
+        </p:panel>
+              
+
+		<p:layout style="min-width: 650px; min-height:400px;">
+		<p:layoutUnit position="west" resizable="false" size="250">
+        <p:growl id="panel2" showDetail="true" />	
+			<p:panel id="menu_principal" header="Menu Principal" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" 
+					widgetVar="panel2" style="margin-bottom:20px">
+					
+        		<p:ajax event="close" update="panel2" />
+        		<p:ajax event="toggle"  update="panel2" />
+        		
+        		<p:growl id="growl" life="2000" />
+        		<p><p:commandLink update="growl" value="Gondolas" /></p>
+        		<p><p:commandLink update="growl" value="Produtos"/></p>
+        		<p:commandLink update="growl" value="Carrinho"/>
+        	</p:panel>	
+		</p:layoutUnit>
+ 
+		<p:layoutUnit position="center">
+	    	<div align="center">
+	    	<p:outputLabel value="Bem vindo ao site de Supermercado." style="font-family: helvetica; font-size:16px;"/>
+	    	</div>
+	    </p:layoutUnit>
+		</p:layout>
+        
+	</h:form>
+</h:body>
+</html>

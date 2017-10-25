@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+<title>Sistema de Supermercado</title>
+</h:head>
+
+<h:body>
+	<h:form>
+
+		<p:growl id="panel1" showDetail="true" />	
+		<p:panel id="sistema_supermercado" header="Sistema de Supermercado" toggleable="true" closable="true" toggleSpeed="500"
+					closeSpeed="500" widgetVar="panel1" style="margin-bottom:20px">
+ 
+        <p:ajax event="close" listener="#{headerMB.onFechar}" update="panel1" />
+        <p:ajax event="toggle" listener="#{headerMB.onMinimizar}" update="panel1" />
+ 
+        <h:panelGrid columns="2" cellpadding="10">
+        	<p:outputLabel value="Login:" />
+        	<p:inputText id="txtLogin" value="#{loginMB.usuario.user}" />
+
+        	<p:outputLabel value="Senha:" />
+        	<p:inputText id="txtSenha" value="#{loginMB.usuario.password}"/>
+        	
+        	<p:commandButton value="Login" action="#{loginMB.login}"/>
+        	<p:commandButton value="Registrar" action="#{loginMB.registrar}"/>
+        </h:panelGrid>
+        </p:panel>
+		
+		<p:layout style="min-width: 650px; min-height:400px;">
+		<p:layoutUnit position="west" resizable="false" size="250">
+        <p:growl id="panel2" showDetail="true" />	
+			<p:panel id="menu_principal" header="Menu Principal" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" 
+					widgetVar="panel2" style="margin-bottom:20px">
+					
+        		<p:ajax event="close" update="panel2" />
+        		<p:ajax event="toggle"  update="panel2" />
+        	</p:panel>	
+		</p:layoutUnit>
+ 
+		<p:layoutUnit position="center">
+			<div align="center">
+	    	<p:outputLabel value="Bem vindo ao site de Supermercado." style="font-family: helvetica; font-size:16px;"/>
+	    	</div>
+	    </p:layoutUnit>
+		</p:layout>
+
+	</h:form>
+</h:body>
+</html>
