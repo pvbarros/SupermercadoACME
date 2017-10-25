@@ -16,7 +16,7 @@
         <p:ajax event="toggle" listener="#{headerMB.onMinimizar}" update="panel1" />
         
         <h:panelGrid columns="2" cellpadding="10">
-        	<p:outputLabel value="Bem vindo, FULANO"  />
+        	<p:outputLabel value="Bem vindo, #{loginMB.usuario.nome}"  />
         	<p:commandButton value="Sair" />
         </h:panelGrid>
         </p:panel>
