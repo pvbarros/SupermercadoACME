@@ -4,12 +4,12 @@
     xmlns:p="http://primefaces.org/ui">
  
 <h:head>
-<title>Gondolas - Sistema de Supermercado</title>
+<title>Carrinho - Sistema de Supermercado</title>
 </h:head>
-
 <h:body>
 	<h:form>
 	
+		<!-- HEADER -->
 		<p:growl id="panel1" showDetail="true" />	
 		<p:panel id="sistema_supermercado" header="Sistema de Supermercado" toggleable="true" closable="true" toggleSpeed="500"
 					closeSpeed="500" widgetVar="panel1" style="margin-bottom:20px">
@@ -22,9 +22,11 @@
         	<p:commandButton value="Sair" />
         </h:panelGrid>
         </p:panel>
-
+        
+        <!-- PANEL OESTE -->
 		<p:layout style="min-width: 650px; min-height:600px;">
 		<p:layoutUnit position="west" resizable="false" size="250">
+		<!-- MENU PRINCIPAL -->
         <p:growl id="panel2" showDetail="true" />	
 			<p:panel id="menu_principal" header="Menu Principal" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" 
 					widgetVar="panel2" style="margin-bottom:20px">
@@ -38,42 +40,55 @@
         		<p:commandLink update="growl" value="Carrinho"/>
         	</p:panel>	
 		</p:layoutUnit>
- 
+ 		
+ 		<!-- PANELA CENTRO -->
 		<p:layoutUnit position="center">
-		<p:dataTable var="gondolas" value="#{gondolaMB.godola}">
+		<!-- TABELA -->
+		<p:dataTable var="produtos" value="#{carrinhoMB.carrinho}">
 			<p:column headerText="ID">
-			<h:outputText value="#{gondolaMB.gondola.id}" />
+			<h:outputText value="#{carrinhoMB.carrinho.id}" />
 			</p:column>
  
-			<p:column headerText="Local">
-			<h:outputText value="#{gondolaMB.gondola.local}" />
+			<p:column headerText="Nome">
+			<h:outputText value="#{carrinhoMB.carrinho.nome}" />
 			</p:column>
  
-			<p:column headerText="Total">
-			<h:outputText value="#{gondolaMB.gondola.total}" />
+ 			<p:column headerText="Produto">
+			<h:outputText value="#{carrinhoMB.carrinho.listaProdutos}" />
+			</p:column>
+			 
+ 			<p:column headerText="Total">
+			<h:outputText value="#{carrinhoMB.carrinho.total}" />
 			</p:column>
  
 		</p:dataTable>
 		
+		<!-- CRUD -->
 		<h:panelGrid columns="2" cellpadding="10">
         	<p:outputLabel value="ID:" />
-        	<p:inputText id="txtID" value="#{gondolaMB.gondola.id}" />
+        	<p:inputText id="txtID" value="#{produtoMB.produto.id}" />
         	
-        	<p:outputLabel value="Local:" />
-        	<p:inputText id="txtLocal" value="#{gondolaMB.gondola.local}"/>
+        	<p:outputLabel value="Nome:" />
+        	<p:inputText id="txtNome" value="#{produtoMB.produto.nome}"/>
         	
+        	<p:outputLabel value="Produto:" />
+        	<p:inputText id="txtProduto" value="#{carrinhoMB.carrinho.listaProdutos}"/>
+         	
         	<p:outputLabel value="Total:" />
-        	<p:inputText id="txtTotal" value="#{gondolaMB.gondola.total}"/>
+        	<p:inputText id="txtTotal" value="#{carrinhoMB.carrinho.total}"/>
+        	       	
+        	<!--<p:outputLabel value="Preço:" />
+        	<p:inputText id="txtPreco" value="#{produtoMB.produto.preco}"/>-->
         </h:panelGrid>
         
-        	<p:commandButton value="Inserir" action="#{gondolaMB.inserir}"/>
-        	<p:commandButton value="Atualizar" action="#{gondolaMB.atualizar}"/>
-        	<p:commandButton value="Pesquisar" action="#{gondolaMB.pesquisar}"/>
-        	<p:commandButton value="Excluir" action="#{gondolaMB.excluir}"/>
+        	<p:commandButton value="Inserir" action="#{produtoMB.inserir}"/>
+        	<p:commandButton value="Pesquisar" action="#{produtoMB.pesquisar}"/>
+        	<p:commandButton value="Excluir" action="#{produtoMB.excluir}"/>
 		
 	    </p:layoutUnit>
 		</p:layout>
-
+	
+	
 	</h:form>
 </h:body>
 </html>

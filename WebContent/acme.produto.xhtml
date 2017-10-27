@@ -4,7 +4,7 @@
     xmlns:p="http://primefaces.org/ui">
  
 <h:head>
-<title>Sistema de Supermercado - Produto</title>
+<title>Produto - Sistema de Supermercado</title>
 </h:head>
 <h:body>
 	<h:form>
@@ -21,7 +21,7 @@
         </h:panelGrid>
         </p:panel>
 
-		<p:layout style="min-width: 650px; min-height:500px;">
+		<p:layout style="min-width: 650px; min-height:600px;">
 		<p:layoutUnit position="west" resizable="false" size="250">
         <p:growl id="panel2" showDetail="true" />	
 			<p:panel id="menu_principal" header="Menu Principal" toggleable="true" closable="true" toggleSpeed="500" closeSpeed="500" 
@@ -71,16 +71,16 @@
         	<p:outputLabel value="Peso:" />
         	<p:inputText id="txtPeso" value="#{produtoMB.produto.peso}"/>
         	
-        	<p:outputLabel value="Preço:" />
+        	<!--<p:outputLabel value="Preço:" />
         	<p:inputText id="txtPreco" value="#{produtoMB.produto.preco}"/>
         	
         	<p:outputLabel value="Tipo:" />
-        	<p:inputText id="txtTipo" value="#{produtoMB.produto.peso}"/>
+        	<p:inputText id="txtTipo" value="#{produtoMB.produto.peso}"/>-->
         </h:panelGrid>
         
         	<p:commandButton value="Inserir" action="#{produtoMB.inserir}"/>
-        	<p:commandButton value="Atualizar" action="#{produtoMB.atualizar}"/>
-        	<p:commandButton value="Pesquisar" action="#{produtoMB.pesquisar}"/>
+        	<!--<p:commandButton value="Atualizar" action="#{produtoMB.atualizar}"/>-->
+        	<!--<p:commandButton value="Pesquisar" action="#{produtoMB.pesquisar}"/>-->
         	<p:commandButton value="Excluir" action="#{produtoMB.excluir}"/>
 		
 	    </p:layoutUnit>
