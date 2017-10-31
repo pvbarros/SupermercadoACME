@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import dao.ProdutoDAO;
 import model.Produto;
 
 @ManagedBean
+@ViewScoped
 public class ProdutoMB implements ProdutoDAO, Serializable {
 
 	private static final long serialVersionUID = -1124494491508532308L;

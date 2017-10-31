@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import dao.GondolaDAO;
 import model.Gondola;
 
 @ManagedBean
+@ViewScoped
 public class GondolaMB implements GondolaDAO, Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,7 +25,7 @@ public class GondolaMB implements GondolaDAO, Serializable {
 	public void setGondola(Gondola gondola){
 		this.gondola = gondola;
 	}
-
+	
 	@Override
 	public void inserir(Gondola gondola) {
 		lista.add(gondola);

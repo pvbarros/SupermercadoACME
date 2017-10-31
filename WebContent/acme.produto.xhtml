@@ -1,7 +1,7 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+    	xmlns:h="http://java.sun.com/jsf/html"
+    	xmlns:f="http://java.sun.com/jsf/core"
+    	xmlns:p="http://primefaces.org/ui">
  
 <h:head>
 <title>Produto - Sistema de Supermercado</title>
@@ -16,7 +16,7 @@
         <p:ajax event="toggle" listener="#{headerMB.onMinimizar}" update="panel1" />
         
         <h:panelGrid columns="2" cellpadding="10">
-        	<p:outputLabel value="Bem vindo, #{loginMB.usuario.nome}"  />
+        	<p:outputLabel value="Bem vindo(a), #{loginMB.usuario.nome}"  />
         	<p:commandButton value="Sair" />
         </h:panelGrid>
         </p:panel>
@@ -38,12 +38,12 @@
 		</p:layoutUnit>
  
 		<p:layoutUnit position="center">
-		<p:dataTable var="produtos" value="#{produtoMB.produto}">
-			<p:column headerText="ID">
+		<p:dataTable var="produtos" value="#{produtoMB.produto}" paginator="true" rows="7">
+			<p:column sortBy="#{produtoMB.produto.id}" headerText="ID">
 			<h:outputText value="#{produtoMB.produto.id}" />
 			</p:column>
  
-			<p:column headerText="Nome">
+			<p:column sortBy="#{produtoMB.produto.nome}" headerText="Nome">
 			<h:outputText value="#{produtoMB.produto.nome}" />
 			</p:column>
  
@@ -55,7 +55,7 @@
 			<h:outputText value="#{produtoMB.produto.preco}" />
 			</p:column>
 			 
- 			<p:column headerText="Tipo">
+ 			<p:column sortBy="#{produtoMB.produto.tipo}"  headerText="Tipo">
 			<h:outputText value="#{produtoMB.produto.tipo}" />
 			</p:column>
  

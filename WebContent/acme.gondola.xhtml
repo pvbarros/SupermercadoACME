@@ -18,7 +18,7 @@
         <p:ajax event="toggle" listener="#{headerMB.onMinimizar}" update="panel1" />
         
         <h:panelGrid columns="2" cellpadding="10">
-        	<p:outputLabel value="Bem vindo, #{loginMB.usuario.nome}"  />
+        	<p:outputLabel value="Bem vindo(a), #{loginMB.usuario.nome}"  />
         	<p:commandButton value="Sair" />
         </h:panelGrid>
         </p:panel>
@@ -40,12 +40,12 @@
 		</p:layoutUnit>
  
 		<p:layoutUnit position="center">
-		<p:dataTable var="gondolas" value="#{gondolaMB.godola}">
+		<p:dataTable var="gondolas" value="#{gondolaMB.godola}" layout="grid" paginator="true" rows="7" >
 			<p:column headerText="ID">
 			<h:outputText value="#{gondolaMB.gondola.id}" />
 			</p:column>
  
-			<p:column headerText="Local">
+			<p:column sortBy="#{gondolaMB.gondola.local}" headerText="Local">
 			<h:outputText value="#{gondolaMB.gondola.local}" />
 			</p:column>
  
